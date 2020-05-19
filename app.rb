@@ -8,9 +8,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks' do
-    @bookmarks = ['http://www.makersacademy.com/',
-    'http://www.destroyallsoftware.com/',
-    'http://www.google.com/']
+    p ENV
+    @bookmarks = Bookmark.new.library
     erb :'bookmarks/index'
   end
 
