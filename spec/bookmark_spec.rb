@@ -8,7 +8,7 @@ describe Bookmark do
       connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com');")
       connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.destroyallsoftware.com');")
       connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
-      bookmarks = Bookmark.new.library
+      bookmarks = Bookmark.all
 
       expect(bookmarks).to include("http://www.makersacademy.com")
       expect(bookmarks).to include("http://www.destroyallsoftware.com")
@@ -18,9 +18,8 @@ describe Bookmark do
 
   describe '.create' do
     it 'create a new bookmark' do
-      bookmarks = Bookmark.new
-      bookmarks.create('http://www.testbookmark.com')
-      expect(bookmarks.library).to include 'http://www.testbookmark.com'
+      Bookmark.create(url: 'http://www.testbookmark.com')
+      expect(Bookmark.all).to include 'http://www.testbookmark.com'
     end
   end
 end

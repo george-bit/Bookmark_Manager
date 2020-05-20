@@ -1,5 +1,7 @@
 <ul>
   <% @bookmarks.each do |bookmark| %>
-  <li><%= bookmark %></li>
+  <li><a href ='<%= bookmark %>'> <%= bookmark %></a></li>
   <%end%>
 </ul>
+
+<a href='/add_bookmark'>Add a bookmark</a>
