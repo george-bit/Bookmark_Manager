@@ -13,4 +13,9 @@
 # User Story two:
 *As a user
 *So I new bookmarks can be added to my view
-* I would like add bookmarks to my existing list
+* I would like add bookmarks to my *existing list
+
+#User Story three:
+*As a user
+*So I can remove my bookmark from Bookmark *Manager
+*I want to delete a bookmark
