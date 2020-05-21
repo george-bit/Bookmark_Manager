@@ -19,3 +19,8 @@
 *As a user
 *So I can remove my bookmark from Bookmark *Manager
 *I want to delete a bookmark
+
+#User Story four:
+*As a user
+*So I can change a bookmark in Bookmark Manager
+*I want to update a bookmark
