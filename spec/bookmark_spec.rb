@@ -3,7 +3,7 @@ require 'bookmark'
 describe Bookmark do
   describe '.library' do
     it 'returns all bookmarks' do
-      connection = PG.connect(dbname: 'bookmark_manager_test')
+      # connection = PG.connect(dbname: 'bookmark_manager_test')
 
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
       Bookmark.create(url: "http://www.destroyallsoftware.com", title: "Destroy All Software")
@@ -21,10 +21,14 @@ describe Bookmark do
 
   describe '.create' do
     it 'create a new bookmark' do
-      bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark').first
+      bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
+      persisted_data = persisted_data(id: bookmark.id)
+  
+      expect(bookmark).to be_a Bookmark
+      expect(bookmark.id).to eq persisted_data["id"]
+      expect(bookmark.title).to eq 'Test Bookmark'
+      expect(bookmark.url).to eq 'http://www.testbookmark.com'
 
-      expect(bookmark['url']).to eq 'http://www.testbookmark.com'
-      expect(bookmark['title']).to eq 'Test Bookmark'
     end
   end
 end
